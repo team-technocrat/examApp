@@ -8,4 +8,5 @@ public interface ChoiceService
 {
 	public Choices addChoices(Choices c);
 	public List<Choices> findAllChoices();
+	
 }

@@ -1,16 +1,15 @@
 package com.lti.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Choices;
-import com.lti.model.Questions;
 
 
 @Repository("ChoicesRepository")
@@ -46,6 +45,8 @@ public class ChoiceRepositoryImpl implements ChoiceRepository
 		em.persist(c);
 		return c;
 	}
+
+	
 	
 	
 }

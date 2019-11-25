@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.Choices;
@@ -56,4 +55,34 @@ public class TestController
 		
 		return model;
 	}
+	
+	
+	
+
+	@RequestMapping(value = "/findAllQuestionsWithChoice2", method=RequestMethod.POST)
+	public ModelAndView fetchAllWithChoiceWithJSP() {
+		
+		List<Choices> list = service.findAllChoices();
+		Collections.shuffle(list);
+		List<Choices> finalList=new ArrayList<Choices>();
+		
+		
+			ModelAndView model=null;
+		
+		if(finalList==null)
+		{
+			model = new  ModelAndView("addFailed");
+		}
+		else
+		{
+			for(int i=0;i<10;i++)
+			{
+			model = new  ModelAndView("addSuccess");
+			model.addObject("choices",finalList);
+			
+			}
+		}
+		return model;
+	}
+	
 }

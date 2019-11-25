@@ -15,23 +15,17 @@ public class ChoiceServiceImpl implements ChoiceService
 {
 	@Autowired
 	ChoiceRepository repository;
-	
-	@Override
-	public List<Choices> findAllChoices()
-	{
-
-		return	repository.findAllChoices();
-	
-	}
 
 	@Override
-	@Transactional
 	public Choices addChoices(Choices c) {
 		// TODO Auto-generated method stub
 		return repository.addChoices(c);
 	}
-	
-	
-	
+
+	@Override
+	public List<Choices> findAllChoices() {
+		// TODO Auto-generated method stub
+		return repository.findAllChoices();
+	}
 	
 }
