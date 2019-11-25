@@ -30,7 +30,7 @@ String s1 = q.getQuestion_desc();
 	
         <tr>
             <th>Question Description</th>
-        	
+        	<th>Technology</th>
             <th>A</th>
             <th>B</th>
             <th>C</th>
@@ -43,6 +43,7 @@ String s1 = q.getQuestion_desc();
       <c:forEach items="${choices}" var="Choice">
 <tr>
           <td>${Choice.question.question_desc}<br></td> 
+          <td>${Choice.question.technologies.technology_name}<br></td> 
           <td>${Choice.choice_1}<br></td>
           <td>${Choice.choice_2}<br></td>
           <td>${Choice.choice_3}<br></td>

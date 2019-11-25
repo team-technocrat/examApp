@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Choices {
+public class Choices implements Comparable<Choices>{
 	
 //	@ManyToOne(fetch=FetchType.LAZY)
 	//@JoinColumn(name="question_id") 
@@ -96,6 +96,22 @@ public class Choices {
 			return "Choices [choice_id=" + choice_id + ", question=" + question + ", choice_1=" + choice_1
 					+ ", choice_2=" + choice_2 + ", choice_3=" + choice_3 + ", choice_4=" + choice_4 + ", correct_ans="
 					+ correct_ans + "]";
+		}
+		
+		@Override
+		public int compareTo(Choices o) {
+			int result=0;
+			if(this.getChoice_id()>o.getChoice_id())
+			{
+				result=1;
+			}
+			
+			else if(this.getChoice_id()<o.getChoice_id())
+			{
+				result=-1;
+			}
+			
+			return result;
 		}
 		
 		

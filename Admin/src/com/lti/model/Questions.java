@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Questions {
+public class Questions implements Comparable<Questions> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "questions_seq")
@@ -76,6 +76,23 @@ public class Questions {
 	public String toString() {
 		return "Questions [question_id=" + question_id + ", question_desc=" + question_desc + ", technologies="
 				+ technologies + ", levels=" + levels + "]";
+	}
+
+
+	@Override
+	public int compareTo(Questions o) {
+		int result=0;
+		
+		if(this.getQuestion_id()>o.getQuestion_id())
+		{
+			result=1;
+		}
+		else if(this.getQuestion_id()<o.getQuestion_id())
+		{
+			result=-1;
+		}
+		
+		return result;
 	}
 
 	
