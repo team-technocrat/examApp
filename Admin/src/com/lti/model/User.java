@@ -4,20 +4,13 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="Candidate_user")
 public class User {
-	
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-	@SequenceGenerator(sequenceName = "user_seq", name = "user_seq", allocationSize = 1)
+	@Id @GeneratedValue
 	int user_id;
 	String name;
 	String email;
@@ -101,7 +94,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.mobile = mobile;
-		this.dob = dob;
+		//this.dob = dob;
 		this.city = city;
 		this.state = state;
 		this.qualification = qualification;
