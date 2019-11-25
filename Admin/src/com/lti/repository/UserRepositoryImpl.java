@@ -32,7 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+@Transactional
 	@Override
 	public User findByEmail(String email) 
 	{

@@ -7,8 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action = "/Admin/findAllQuestionsWithChoiceWithJSP" method="post">
-<input type="submit" value="Start Exam">
+
+<form action="/Admin/findAllQuestionsWithChoiceWithJSP" method="post"><input style="width: 100px" type="submit" class="button exam" name="butn" value='JAVA'></form>
+<form action="/Admin/findAllQuestionsWithChoiceWithJSP" method="post"><input style="width: 100px" type="submit" class="button exam" name="butn" value='CSS'></form>
+<form action="/Admin/findAllQuestionsWithChoiceWithJSP" method="post"><input style="width: 100px" type="submit" class="button exam" name="butn" value='PHP'></form>
+<form action="/Admin/findAllQuestionsWithChoiceWithJSP" method="post"><input style="width: 100px" type="submit" class="button exam" name="butn" value='HTML'></form>
+<form action="/Admin/findAllQuestionsWithChoiceWithJSP" method="post"><input style="width: 100px" type="submit" class="button exam" name="butn" value='SQL'></form>
+<form action="/Admin/findAllQuestionsWithChoiceWithJSP" method="post"><input style="width: 100px" type="submit" class="button exam" name="butn" value='JavaScript'></form>
+
 </form>
 </body>
 </html>

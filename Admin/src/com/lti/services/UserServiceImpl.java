@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	@Transactional
 	public User login(User u) {
 		User userToBeReturned=null;
 		User uDB= repository.findByEmail(u.getEmail());
