@@ -26,6 +26,17 @@ public class Questions implements Comparable<Questions> {
 	@OneToOne
 	@JoinColumn(name="level_id")
 	Levels levels;
+	
+	@OneToOne(mappedBy = "question") 
+	Choices choices;
+
+	public Choices getChoices() {
+		return choices;
+	}
+
+	public void setChoices(Choices choices) {
+		this.choices = choices;
+	}
 
 	public int getQuestion_id() {
 		return question_id;

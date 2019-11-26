@@ -20,24 +20,12 @@ public class User_Exam_Question
 	@JoinColumn(name="question_id")
 	Questions question;
 	
-	String correct_answer;
+	@OneToOne
+	@JoinColumn(name="choice_id")
+	Choices choices;
+	
 	int score;
 	String ans;
-	
-	public User_Exam_Question() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public User_Exam_Question(int user_exam_id, Questions question, String correct_answer, int score, String ans) {
-		super();
-		this.user_exam_id = user_exam_id;
-		this.question = question;
-		this.correct_answer = correct_answer;
-		this.score = score;
-		this.ans = ans;
-	}
-	
 	public int getUser_exam_id() {
 		return user_exam_id;
 	}
@@ -50,11 +38,11 @@ public class User_Exam_Question
 	public void setQuestion(Questions question) {
 		this.question = question;
 	}
-	public String getCorrect_answer() {
-		return correct_answer;
+	public Choices getChoices() {
+		return choices;
 	}
-	public void setCorrect_answer(String correct_answer) {
-		this.correct_answer = correct_answer;
+	public void setChoices(Choices choices) {
+		this.choices = choices;
 	}
 	public int getScore() {
 		return score;
@@ -69,6 +57,25 @@ public class User_Exam_Question
 		this.ans = ans;
 	}
 	
+	public User_Exam_Question(int user_exam_id, Questions question, Choices choices, int score, String ans) {
+		super();
+		this.user_exam_id = user_exam_id;
+		this.question = question;
+		this.choices = choices;
+		this.score = score;
+		this.ans = ans;
+	}
+	
+	public User_Exam_Question() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public String toString() {
+		return "User_Exam_Question [user_exam_id=" + user_exam_id + ", question=" + question + ", choices=" + choices
+				+ ", score=" + score + ", ans=" + ans + "]";
+	}
 	
 	
 }

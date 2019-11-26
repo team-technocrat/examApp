@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -12,27 +14,31 @@ public class Result {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "result_seq")
 	@SequenceGenerator(sequenceName = "result_seq", name = "result_seq", allocationSize = 1)
-	
 	int result_id;
-	int user_id;
-	int user_exam_id;
-	int total_score;
 	
+	@OneToOne
+	@JoinColumn(name="user_id")
+	User user;
+	
+	@OneToOne
+	@JoinColumn(name="user_exam_id")
+	User_Exam user_exam;
+	
+	int total_score;
+
 	public Result() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Result(int result_id, int user_id, int user_exam_id, int total_score) {
+	public Result(int result_id, User user, User_Exam user_exam, int total_score) {
 		super();
 		this.result_id = result_id;
-		this.user_id = user_id;
-		this.user_exam_id = user_exam_id;
+		this.user = user;
+		this.user_exam = user_exam;
 		this.total_score = total_score;
 	}
 
-	
-	
 	public int getResult_id() {
 		return result_id;
 	}
@@ -41,20 +47,20 @@ public class Result {
 		this.result_id = result_id;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public int getUser_exam_id() {
-		return user_exam_id;
+	public User_Exam getUser_exam() {
+		return user_exam;
 	}
 
-	public void setUser_exam_id(int user_exam_id) {
-		this.user_exam_id = user_exam_id;
+	public void setUser_exam(User_Exam user_exam) {
+		this.user_exam = user_exam;
 	}
 
 	public int getTotal_score() {
@@ -63,12 +69,6 @@ public class Result {
 
 	public void setTotal_score(int total_score) {
 		this.total_score = total_score;
-	}
-
-	@Override
-	public String toString() {
-		return "Result [result_id=" + result_id + ", user_id=" + user_id + ", user_exam_id=" + user_exam_id
-				+ ", total_score=" + total_score + "]";
 	}
 	
 	

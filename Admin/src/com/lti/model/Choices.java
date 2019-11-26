@@ -8,15 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 @Entity
 public class Choices implements Comparable<Choices>{
-	
-//	@ManyToOne(fetch=FetchType.LAZY)
-	//@JoinColumn(name="question_id") 
-	//Questions question;
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "choice_seq")
 	@SequenceGenerator(sequenceName = "choice_seq", name = "choice_seq", allocationSize = 1)
@@ -31,13 +27,24 @@ public class Choices implements Comparable<Choices>{
 		String choice_3;
 		String choice_4;
 		String correct_ans;
+		@Transient
+		boolean correct;
+		
+		public boolean isCorrect() {
+			return correct;
+		}
+		public void setCorrect(boolean correct) {
+			this.correct = correct;
+		}
 		
 		public Choices() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		
+	
 		public Choices(int choice_id, Questions question, String choice_1, String choice_2, String choice_3,
-				String choice_4, String correct_ans) {
+				String choice_4, String correct_ans, boolean correct) {
 			super();
 			this.choice_id = choice_id;
 			this.question = question;
@@ -46,8 +53,9 @@ public class Choices implements Comparable<Choices>{
 			this.choice_3 = choice_3;
 			this.choice_4 = choice_4;
 			this.correct_ans = correct_ans;
+			this.correct = correct;
 		}
-	
+		
 		public int getChoice_id() {
 			return choice_id;
 		}
@@ -91,13 +99,14 @@ public class Choices implements Comparable<Choices>{
 			this.correct_ans = correct_ans;
 		}
 		
+		
+		
 		@Override
 		public String toString() {
 			return "Choices [choice_id=" + choice_id + ", question=" + question + ", choice_1=" + choice_1
 					+ ", choice_2=" + choice_2 + ", choice_3=" + choice_3 + ", choice_4=" + choice_4 + ", correct_ans="
-					+ correct_ans + "]";
+					+ correct_ans + ", correct=" + correct + "]";
 		}
-		
 		@Override
 		public int compareTo(Choices o) {
 			int result=0;

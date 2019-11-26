@@ -8,6 +8,8 @@ public interface ChoiceRepository
 {
 	public Choices addChoices(Choices c);
 	public List<Choices> findAllChoices();
+	
+	
 
 }
 

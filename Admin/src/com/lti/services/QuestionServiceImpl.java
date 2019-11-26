@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lti.model.Choices;
 import com.lti.model.Questions;
-import com.lti.repository.ChoiceRepository;
 import com.lti.repository.QuestionRepository;
 
 @Service("questionService")
@@ -62,6 +60,20 @@ public class QuestionServiceImpl implements QuestionService {
 			return repository.findAllQuestionsWithChoice();
 		
 		}
+
+		@Override
+		public List<Questions> findWithTechnology(String technology_name) {
+			// TODO Auto-generated method stub
+			return repository.findWithTechnology(technology_name);
+		}
+
+		@Override
+		public List<Questions> getCorrectAns(int question_id) {
+			// TODO Auto-generated method stub
+			return repository.getCorrectAns(question_id);
+		}
+
+		
 
 		
 	

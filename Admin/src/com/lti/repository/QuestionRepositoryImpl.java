@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lti.model.Choices;
 import com.lti.model.Questions;
 
 @Repository("questionRepository")
@@ -45,11 +44,6 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 		{
 			System.out.println("\n\n----------"+b);
 		}
-			/*System.out.println("in dao");
-			String ql = " from Users";
-			Query q = em.createQuery(ql);
-			return q.getResultList();*/
-		
 	return l;
 
 	}
@@ -74,7 +68,7 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 		// TODO Auto-generated method stub
 		String q1="select q from Questions q";
 		TypedQuery<Questions> query = em.createQuery(q1, Questions.class);
-			    List<Questions> l = query.getResultList();
+	    List<Questions> l = query.getResultList();
 	for(Questions b:l)
 		{
 			System.out.println("\n\n----------"+b);
@@ -86,6 +80,27 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 		
 	return l;
 	}
+
+	@Override
+	public List<Questions> findWithTechnology(String technology_name) {
+		String q1 = "select q from Questions q where technolgy_name="+technology_name;
+		TypedQuery<Questions> query = em.createQuery(q1, Questions.class);
+		List<Questions> l = query.getResultList();
+		
+		for(Questions b:l)
+		{
+			System.out.println("\n\n----------"+b);
+		}
+		return l;
+	}
+
+	@Override
+	public List<Questions> getCorrectAns(int question_id) {
+		String query = "select c.correct_ans from Choices c where c.question_id="+question_id;
+		TypedQuery<Questions> list = em.createQuery(query,Questions.class);
+		return list.getResultList();
+	}
 	
+
 
 }

@@ -19,5 +19,9 @@ public interface QuestionRepository {
 	
 	public List<Questions> findAllQuestionsWithChoice();
 	
+	public List<Questions> findWithTechnology(String technology_name);
+	
+	public List<Questions> getCorrectAns(int question_id);
+	
 
 }

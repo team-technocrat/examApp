@@ -1,30 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib uri = "http://java.sun.com/jsp/jstl/core"  prefix = "c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <title>Start Exam</title>
-  <link rel="stylesheet" type="text/css" href="gladiator.css">
+ 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   
-  
+  <link href=${pageContext.request.contextPath}/resources/css/style.css/>
   
 </head>
 
  <%!int qnno=1;%>
-<body bgcolor="#f1f1f1" onload="countdown();">
+<body  onload="countdown();">
   <div class="abc">
 <img src="logo4.jpg">
   <a href="">Home</a>
   <a href="">About Us </a>
   <a href="">Contact Us</a>
-   <!--  <a href="${contextPath}/logout.lti" style="float:right">Logout</a>
-   <a href="" style="float:right">Hello, ${name}</a> -->
 </div>
 
- <form id="test" action="">
+ <form method="post" id="test" action="/Admin/question/submit" >
         <div id="mcq">
              <div id="review_box">
                <input id="minutes" type="text" style="width: 10px; border: none; font-size: 16px; font-weight: bold; color: black;"><font size="5"> : </font> 
@@ -32,24 +31,30 @@
             </div>
             <br>
             <br><br>
-            <p class="qtn_no">Question :  <%out.print(qnno+" / 10");%></p>
-            <p class="qtn">${ question.question_desc}</p>
-            <div class="options">
-
-            <input type="radio" name="opt" id="ans" value="1" >${ question.choice_1 }<br><br>
-            <input type="radio" name="opt" id="ans" value="2" >${ question.choice_2 }<br><br>
-            <input type="radio" name="opt" id="ans" value="3">${ question.choice_3 }<br><br>
-            <input type="radio" name="opt" id="ans" value="4">${ question.choice_4 }<br><br>
             
-<!-- <input type="hidden" name="opt" value="0">   -->
+            <p class="qtn_no">Question :  <%out.print(qnno+" / 10");%></p>
+            <c:forEach items="${questions}" var="Question">
+            <p class="qtn">${Question.question_desc}</p>
+            <input type="hidden" name="question_id" value="${Question.question_id}">
+            
+            <div class="options">
+  
+			
+            <input type="radio" name="${Question.question_id}" id="ans" value="${Question.choices.choice_1} " >${ Question.choices.choice_1 }<br><br>
+            <input type="radio" name="${Question.question_id}" id="ans" value="${Question.choices.choice_2}">${ Question.choices.choice_2 }<br><br>
+            <input type="radio" name="${Question.question_id}" id="ans" value="${Question.choices.choice_1}">${ Question.choices.choice_3 }<br><br>
+            <input type="radio" name="${Question.question_id}" id="ans" value="${Question.choices.choice_1}">${ Question.choices.choice_4 }<br><br>
+            </c:forEach>
+            <input type="hidden" name="opt" value="0">   
 
 
             </div>
-            <input type="submit" class="next_button" value="Next" name="butn" id="testbutton">
+            <input type="submit" value="Submit" name="butn" id="testbutton">
         </div>
             </div>
     </form>
 <%qnno++; %>
+
 </body>
 <script>
   
