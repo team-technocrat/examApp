@@ -21,7 +21,6 @@ public class TechnologyController {
 	public ModelAndView addTech(@RequestParam String technology_name)
 	{
 		Technologies incomingTechnologies = new Technologies();
-		//incomingUser.setUser_id(id);
 		incomingTechnologies.setTechnology_name(technology_name);
 		
 		

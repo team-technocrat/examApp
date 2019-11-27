@@ -27,13 +27,14 @@ public class LevelsServiceImpl implements LevelsService
 	@Override
 	public void updateLevels(Levels l) {
 		// TODO Auto-generated method stub
+		repository.updateLevels(l);
 		
 	}
 
 	@Override
 	public List<Levels> findAllLevels() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAllLevels();
 	}
 
 	@Override

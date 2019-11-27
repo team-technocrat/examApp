@@ -22,7 +22,6 @@ public class TestController
 	@RequestMapping(value = "/findAllQuestionsWithChoiceWithJSP" , method = RequestMethod.POST)
 	public ModelAndView fetchAllWithChoice() {
 		
-		//System.out.println("in controller");
 		List<Choices> list = service.findAllChoices();
 		Collections.shuffle(list);
 		List<Choices> finalList=new ArrayList<Choices>();

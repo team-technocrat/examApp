@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>Ho jaega ghabrate nai</h3>
+<h3>Your User ID:${score.user_id}</h3>
+<h3>Your Score is: ${score.tot_score}</h3>
 </body>
 </html>

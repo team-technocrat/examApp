@@ -7,11 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="addLevel" method="Post">
-Technology:<input type="text" name="technology_id">
-	
-Level Name:	<input type="text" name="level_name">
-	<input type="submit" name="Add Level">
+<form action="/Admin/allScore">
+<input type="submit" value="View All Scores">
 </form>
 </body>
 </html>

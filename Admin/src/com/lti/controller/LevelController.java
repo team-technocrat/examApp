@@ -22,24 +22,8 @@ public class LevelController {
 	@Autowired
 	TechnologiesService technologyService;
 	
-	
-	/*
-	 * @RequestMapping(value="/login",method=RequestMethod.POST) public ModelAndView
-	 * numberCheck (@RequestParam String username, @RequestParam String password) {
-	 * User incomingUser = new User(); incomingUser.setEmail(username);
-	 * incomingUser.setPassword(password);
-	 * 
-	 * User u = service.login(incomingUser); ModelAndView model = null; if(u==null)
-	 * { model = new ModelAndView("loginfailed");
-	 * System.out.println("Login failed"); } else { model = new
-	 * ModelAndView("index1"); model.addObject("user",u);
-	 * System.out.println("Login success"); }
-	 * 
-	 * return model; }
-	 */
-	
 	@RequestMapping(value="/addLevel",method=RequestMethod.POST)
-	public ModelAndView addTech(@RequestParam /*int user_id,*/ int technology_id,String level_name)
+	public ModelAndView addTech(@RequestParam int technology_id,String level_name)
 	{
 		Technologies t=technologyService.findTechnolgies(technology_id);
 		System.out.println(t);

@@ -24,13 +24,13 @@ public class ScoreServiceImpl implements ScoreService {
 	@Override
 	public List<Score> allScores() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.allScores();
 	}
 
 	@Override
-	public List<Score> findAllScoreById(int user_id) {
+	public Score findAllScoreById(int user_id) {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAllScoreById(user_id);
 	}
 
 }

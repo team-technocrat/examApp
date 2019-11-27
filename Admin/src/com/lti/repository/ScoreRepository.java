@@ -10,6 +10,6 @@ public interface ScoreRepository {
 	
 	public List<Score> allScores();
 	
-	public List<Score> findAllScoreById(int user_id);
+	public Score findAllScoreById(int user_id);
 
 }

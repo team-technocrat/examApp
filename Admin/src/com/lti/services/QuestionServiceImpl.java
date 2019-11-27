@@ -15,8 +15,6 @@ public class QuestionServiceImpl implements QuestionService {
 	@Autowired
 	QuestionRepository repository;
 	
-	
-	
 	@Override
 	@Transactional
 	public Questions addQuestion(Questions q) {
@@ -35,7 +33,7 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public List<Questions> findAllQuestions()
 	{
-
+		// TODO Auto-generated method stub
 		return	repository.findAllQuestions();
 	
 	}
@@ -72,13 +70,5 @@ public class QuestionServiceImpl implements QuestionService {
 			// TODO Auto-generated method stub
 			return repository.getCorrectAns(question_id);
 		}
-
 		
-
-		
-	
-	
-	
-	
-
 }

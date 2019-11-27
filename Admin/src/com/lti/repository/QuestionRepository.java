@@ -8,7 +8,6 @@ public interface QuestionRepository {
 	
 	public Questions addQuestion(Questions q);
 
-	
 	public List<Questions> findAllQuestions();
 	
 	public Questions findQuestions(int question_id);

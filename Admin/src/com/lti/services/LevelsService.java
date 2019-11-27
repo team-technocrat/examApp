@@ -6,8 +6,8 @@ import com.lti.model.Levels;
 
 public interface LevelsService {
 
-
 	public Levels addLevels(Levels l);
+	
 	public void updateLevels(Levels l);
 	
 	public List<Levels> findAllLevels();

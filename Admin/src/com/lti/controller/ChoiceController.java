@@ -55,15 +55,9 @@ public class ChoiceController
 		return model;
 	}
 	
-	
-	
-	
-	
-	
-	@RequestMapping(value = "/findAllQuestionsWithChoice1")
-	public ModelAndView fetchAllWithChoice() {
+@RequestMapping(value = "/findAllQuestionsWithChoice1")
+public ModelAndView fetchAllWithChoice() {
 		
-		//System.out.println("in controller");
 		List<Choices> list = service.findAllChoices();
 		Collections.shuffle(list);
 		List<Choices> finalList=new ArrayList<Choices>();

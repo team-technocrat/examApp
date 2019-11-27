@@ -59,8 +59,6 @@ public class QuestionController {
 		Technologies t = technologyService.findTechnolgies(technology_id);
 		Levels l = levelService.findLevels(level_id);
 		
-		System.out.println(t+" -------- "+l);
-		
 		Questions question = new Questions();
 		question.setQuestion_desc(question_desc);
 		question.setTechnologies(t);
@@ -89,9 +87,7 @@ public class QuestionController {
 		Questions q = service.findQuestions(question_id); 
 		q.setQuestion_desc(question_desc);
 		
-	
 		Questions q2 = service.updateQuestion(q);
-		System.out.println("\n =========== \n"+q2);
 		
 		ModelAndView model=null;
 		if(q2==null)
@@ -153,7 +149,6 @@ public ModelAndView fetchQuestion(@RequestParam int question_id) {
 	  
 	  }
 	  
-
 @RequestMapping(value = "/findAllQuestionsWithChoice")
 public ModelAndView fetchAllWithChoice() {
 			
@@ -177,49 +172,54 @@ public ModelAndView fetchAllWithChoice() {
 
 
 @RequestMapping(value="submit")
-public String submit(HttpServletRequest request)
-	
-{
-	int user_id = 1;
-	Enumeration<String> e=request.getParameterNames();
-	
-	//System.out.println(list);
-	
-	while (e.hasMoreElements()) {
-	    String param = e.nextElement();
-	    
-	    String correctAnswer;
-	    System.out.println(param+"-->"+request.getParameter(param));
-	    String s1 = request.getParameter(param);
-	    if(param.equals("opt")||param.equals("butn")||param.equals("question_id"))
-	    {
-	    	
-	    }
-	    else
-	    {
-	    	int qid=Integer.parseInt(param);
-	    	correctAnswer=ueService.getCorrectAnswer(qid);
-	    	System.out.println("Correct answer is: "+correctAnswer);
-	    	
-	    	if(correctAnswer.equalsIgnoreCase(s1))
-	    	{
-	    		System.out.println("Inside if: "+score);
-	    		score++;
-	    	}
-	    	System.out.println("Outside if: "+score);
-	    }
-	    
-	}
+public ModelAndView submit(HttpServletRequest request)
 
-		
-		  System.out.println("\n\n\nYour score is : "+score); 
-		  Score sc=new Score();
-		  sc.setTot_score(score);
-		  sc.setUser_id(user_id);
-		  scoreService.addScore(sc);
+{
+int user_id = 1;
+Enumeration<String> e=request.getParameterNames();
+ModelAndView model = null;
+
+while (e.hasMoreElements()) {
+    String param = e.nextElement();
+    
+    String correctAnswer;
+    System.out.println(param+"-->"+request.getParameter(param));
+    String s1 = request.getParameter(param);
+    if(param.equals("opt")||param.equals("butn")||param.equals("question_id"))
+    {
+    	
+    }
+    else
+    {
+    	int qid=Integer.parseInt(param);
+    	correctAnswer=ueService.getCorrectAnswer(qid);
+    	System.out.println("Correct answer is: "+correctAnswer);
+    	
+    	if(correctAnswer.equalsIgnoreCase(s1))
+    	{
+    		
+    		score++;
+    	}
+    	
+    }
+    
+}
+	  Score sc=new Score();
+	  sc.setTot_score(score);
+	  sc.setUser_id(user_id);
+	  scoreService.addScore(sc);
+
+	  if(sc==null)
+	  {
 		  
-		
-return "result";	
-	}
+	  }else
+	  {
+		  	model=new ModelAndView("result");
+			model.addObject("score", sc); 
+	  }
+	  
+	
+return model;	
+}
 
 }

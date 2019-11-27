@@ -24,9 +24,6 @@
 <tr>
           <td> ${Question.question_id}<br></td>
           <td>${Question.question_desc}<br></td>
-         <!--  <td>${Question.technologies}<br></td>
-         <td>${Question.levels}<br></td>
-         <!-- <td><a href="DeleteBus?bid=${Bus.bid}">Delete</a></td> -->
          
      </tr>
 </c:forEach>

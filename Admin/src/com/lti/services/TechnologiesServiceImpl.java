@@ -25,14 +25,16 @@ public class TechnologiesServiceImpl implements TechnologiesService{
 	@Override
 	public List<Technologies> findAllTechnologies() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAllTechnologies();
 	}
 
 	@Override
 	public void updateTechnolgies(Technologies t) {
 		// TODO Auto-generated method stub
-		
+		repository.updateTechnolgies(t);
 	}
+	
+	@Override
 	public Technologies findTechnolgies(int technology_id) {
 		Technologies t=repository.findTechnolgies(technology_id);
 		return t;

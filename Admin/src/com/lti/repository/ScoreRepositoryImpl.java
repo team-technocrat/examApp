@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.model.Questions;
 import com.lti.model.Score;
 
 @Repository("scoreRepository")
@@ -28,13 +29,17 @@ public class ScoreRepositoryImpl implements ScoreRepository {
 	@Override
 	public List<Score> allScores() {
 		// TODO Auto-generated method stub
-		return null;
+		String q1="select s from Score s";
+		javax.persistence.TypedQuery<Score> query=em.createQuery(q1,Score.class);
+		List<Score> l=query.getResultList();
+		return l;
 	}
 
 	@Override
-	public List<Score> findAllScoreById(int user_id) {
+	public Score findAllScoreById(int user_id) {
 		// TODO Auto-generated method stub
-		return null;
+		Score s = em.find(Score.class, new Integer(user_id));
+		return s;
 	}
 
 }

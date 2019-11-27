@@ -19,7 +19,6 @@ public class ResultRepositoryImpl implements ResultRepository {
 	@Transactional
 	public Result addScore(Result result) {
 		// TODO Auto-generated method stub
-		//em.merge(result);
 		em.persist(result);
 		return result;
 	}

@@ -12,7 +12,7 @@ public interface QuestionService {
 	
 	public Questions findQuestions(int question_id);
 
-	Questions updateQuestion(Questions q);
+	public Questions updateQuestion(Questions q);
 
 	public void removeQuestion(Questions q);
 	

@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.model.Questions;
+import com.lti.model.Score;
 import com.lti.model.User;
 @Repository("userRepository")
 public class UserRepositoryImpl implements UserRepository {
@@ -24,15 +26,18 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public void updateUser( User u) {
 		// TODO Auto-generated method stub
+		em.merge(u);
 		
 	}
 
 	@Override
-	public User findById(int id) {
+	public User findById(int user_id) {
 		// TODO Auto-generated method stub
-		return null;
+		User u = em.find(User.class, new Integer(user_id));
+		return u;
 	}
-@Transactional
+
+	@Transactional
 	@Override
 	public User findByEmail(String email) 
 	{
@@ -46,7 +51,10 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
-		return null;
+		String q1="select u from User u";
+		javax.persistence.TypedQuery<User> query=em.createQuery(q1,User.class);
+		List<User> l=query.getResultList();
+		return l;
 	}
 	
 	

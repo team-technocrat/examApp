@@ -28,20 +28,6 @@ public class UserExamRepositoryImpl implements UserExamRepository {
 		return u;
 	}
 
-	/*
-	 * @Override public List<Choices> getCorrectAnswers(Questions questions) { //
-	 * TODO Auto-generated method stub return (List<Choices>)em.
-	 * createQuery("SELECT c.correct_ans from Choices a WHERE c.question_id=:question_id"
-	 * ) .setParameter("question_id", questions.getQuestion_id()) .getResultList();
-	 * }
-	 * 
-	 * public List<Choices> getUserAnswer(User_Exam_Question ueq) { return
-	 * (List<Choices>)em.
-	 * createQuery("SELECT u.user_ans from User_Exam_Question u WHERE u.question_id=:question_id"
-	 * ) .setParameter("question_id", ueq.getQuestion().getQuestion_id())
-	 * .getResultList(); }
-	 */
-	
 	@Transactional
 	public String getCorrectAnswer(int question_id)
 	{

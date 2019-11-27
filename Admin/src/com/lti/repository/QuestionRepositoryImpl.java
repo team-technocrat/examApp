@@ -40,10 +40,6 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 		javax.persistence.TypedQuery<Questions> query=em.createQuery(q1,Questions.class);
 		List<Questions> l=query.getResultList();
 		
-		for(Questions b:l)
-		{
-			System.out.println("\n\n----------"+b);
-		}
 	return l;
 
 	}
@@ -69,15 +65,7 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 		String q1="select q from Questions q";
 		TypedQuery<Questions> query = em.createQuery(q1, Questions.class);
 	    List<Questions> l = query.getResultList();
-	for(Questions b:l)
-		{
-			System.out.println("\n\n----------"+b);
-		}
-			/*System.out.println("in dao");
-			String ql = " from Questions";
-		 q = em.createQuery(l);
-			return q.getResultList();*/
-		
+	
 	return l;
 	}
 
@@ -86,11 +74,7 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 		String q1 = "select q from Questions q where technolgy_name="+technology_name;
 		TypedQuery<Questions> query = em.createQuery(q1, Questions.class);
 		List<Questions> l = query.getResultList();
-		
-		for(Questions b:l)
-		{
-			System.out.println("\n\n----------"+b);
-		}
+
 		return l;
 	}
 

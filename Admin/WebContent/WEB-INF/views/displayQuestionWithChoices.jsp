@@ -8,23 +8,8 @@
 <title>Display Questions</title>
 </head>
 <body>
-<%
-/* Choices c = new Choices();
-String s1 = c.getChoice_1();
-String s2 = c.getChoice_2();
-String s3 = c.getChoice_3();
-String s4 = c.getChoice_4(); */
 
-Questions q = new Questions();
-
-Choices c = new Choices();
-String s1 = q.getQuestion_desc();
-
-
-
-%>
-<caption>
-<h2>List of all Questions</h2></caption>
+<h2>List of all Questions</h2>
 <h2>${s1}</h2>
 <table border = "1" cellpadding = "5">
 	
